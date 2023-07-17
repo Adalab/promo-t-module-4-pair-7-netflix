@@ -58,4 +58,16 @@ INSERT INTO `netflix`.`actors` (`name`, `lastname`, `country`, `year_birthday`) 
 INSERT INTO `netflix`.`actors` (`name`, `lastname`, `country`, `year_birthday`) VALUES ('Roberto', 'Benigni', 'Italia', '1952');
 INSERT INTO `netflix`.`actors` (`name`, `lastname`, `country`, `year_birthday`) VALUES ('John', 'Travolta', 'Estados Unidos', '1954');
 
-    
+
+
+-- dayana hizo algo así: https://github.com/Adalab/ejercicios-en-clase-t/blob/main/modulo-4/modulo-4-resolucion-dudas/modulo-4-template-express-mysql/src/index.js
+-- OJO al %
+
+SELECT * FROM book WHERE title LIKE '%${title}%';
+
+SELECT * FROM book ORDER BY price asc;
+
+
+--  En el nuestro ha funcionado:
+SELECT * FROM movies ORDER BY title ASC;
+SELECT * FROM movies WHERE genre LIKE 'comedia' ORDER BY title;

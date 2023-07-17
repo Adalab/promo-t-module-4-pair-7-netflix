@@ -30,7 +30,10 @@ server.listen(serverPort, () => {
 // endpoints
 
 server.get("/movies", async (req, res) => {
-  const selectMovies = "SELECT * FROM movies";
+   console.log('GET /movies');
+  console.log(req.query);
+  const genreFilterParam = req.query.genre;
+  const selectMovies = `SELECT * FROM movies WHERE genre LIKE '${genreFilterParam}'`;
   const conn = await getConnection();
   const [results, cols] = await conn.query(selectMovies);
   console.log(results);
@@ -44,3 +47,8 @@ server.get("/movies", async (req, res) => {
 // static server
 
 server.use(express.static("./src/public-react"));
+
+// static server for images
+server.use(express.static("./src/public-movies-images"));
+
+// NO ENTIENDO POR QUÉ SON LAS RUTAS CORRECTAS...
